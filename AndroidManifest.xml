@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sigtech.panicbutton"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <!-- <uses-permission android:name="android.permission.GET_ACCOUNTS" /> -->
+    <!-- <uses-permission android:name="android.permission.WAKE_LOCK" /> -->
+
+
+    <!-- <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" /> -->
+
+
+    <!-- <permission -->
+    <!-- android:name="com.example.gcm.permission.C2D_MESSAGE" -->
+    <!-- android:protectionLevel="signature" /> -->
+
+
+    <!-- <uses-permission android:name="com.example.gcm.permission.C2D_MESSAGE" /> -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/panic_button"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Sherlock.Light" >
+        <activity
+            android:name="com.sigtech.panicbutton.frags.MainPanicFragment"
+            android:label="@string/app_name" >
+        </activity>
+        <activity android:name="com.sigtech.panicbutton.acts.SplashAct" >
+        </activity>
+        <activity android:name=".frags.FormFragment" >
+        </activity>
+        <activity android:name=".frags.AboutFragment" >
+        </activity>
+        <activity android:name=".frags.LoginFragment" >
+        </activity>
+        <activity android:name=".frags.FollowersFragment" >
+        </activity>
+        <activity android:name=".frags.UnlockerFragment" >
+        </activity>
+
+        <receiver android:name="com.sigtech.panicbutton.manager.SMSReceiver" >
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" >
+                </action>
+            </intent-filter>
+        </receiver>
+
+        <activity android:name="com.sigtech.panicbutton.acts.PanicMessageAct" >
+        </activity>
+        <activity android:name="com.sigtech.panicbutton.acts.MainSFAct" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <!-- <category android:name="android.intent.category.HOME" /> -->
+            </intent-filter>
+        </activity>
+
+        <service android:name="com.sigtech.panicbutton.service.MainService" >
+        </service>
+
+        <!-- <receiver -->
+        <!-- android:name=".GcmBroadcastReceiver" -->
+        <!-- android:permission="com.google.android.c2dm.permission.SEND" > -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="com.google.android.c2dm.intent.RECEIVE" /> -->
+
+
+        <!-- <category android:name="com.example.gcm" /> -->
+        <!-- </intent-filter> -->
+        <!-- </receiver> -->
+
+
+        <!-- service android:name=".GcmIntentService" / -->
+        <service android:name="com.sigtech.panicbutton.service.ServerChecker" >
+        </service>
+
+        <activity android:name="com.sigtech.panicbutton.acts.DummyPageTest" >
+        </activity>
+    </application>
+
+</manifest>
